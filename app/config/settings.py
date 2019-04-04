@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'fields',
+    'foreignkey',
 
 
     'django.contrib.admin',
@@ -40,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 패키지
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
