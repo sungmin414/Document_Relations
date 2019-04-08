@@ -49,7 +49,6 @@ class TwitterUser(models.Model):
             to_user_relations__relation_type='b',
         )
 
-    @property
     def follow(self, user):
         """
         user를 follw하는 Relation을 생성
@@ -67,7 +66,6 @@ class TwitterUser(models.Model):
 
         return self.from_user_relations.get(to_user=user)
 
-    @property
     def block(self, user):
         """
         user를 block하는 Relation을 생성
