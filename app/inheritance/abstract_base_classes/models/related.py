@@ -21,8 +21,10 @@ class PostBase(models.Model):
         on_delete=models.CASCADE,
         # 유저(Person) 입장에서
         # 자신이 특정 Post의 author인 경우에 해당하는 모든 PostBase 객체를 참조
-        related_name='%(class)s_set',
-        related_query_name='%(class)s'
+        # %(class)s : 상속받은 클래스명의 소문자화
+        # %(app_label)s : 상속받은 클래스가 속한 애플리케이션명의 소문자화
+        related_name='%(app_label)s_%(class)s_set',
+        related_query_name='%(app_label)s_%(class)s'
 
     )
     created_at = models.DateTimeField(auto_now_add=True)

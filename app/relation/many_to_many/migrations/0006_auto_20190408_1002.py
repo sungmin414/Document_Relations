@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='twitteruser',
             name='relation_users',
-            field=models.ManyToManyField(related_name='_twitteruser_relation_users_+', through='many_to_many.Relation', to='many_to_many.TwitterUser'),
+            field=models.ManyToManyField(related_name='_twitteruser_relation_users_+', through='relation.many_to_many.Relation', to='relation.many_to_many.TwitterUser'),
         ),
     ]

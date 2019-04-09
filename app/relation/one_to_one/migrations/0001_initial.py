@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Restaurant',
             fields=[
-                ('place', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='one_to_one.Place')),
+                ('place', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='relation.one_to_one.Place')),
                 ('serves_hot_dogs', models.BooleanField(default=False)),
                 ('serves_pizza', models.BooleanField(default=False)),
             ],
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
-                ('restaurant', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='one_to_one.Restaurant')),
+                ('restaurant', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='relation.one_to_one.Restaurant')),
             ],
         ),
     ]

@@ -24,18 +24,18 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
-                ('relation_users', models.ManyToManyField(through='many_to_many.Relation', to='many_to_many.TwitterUser')),
+                ('relation_users', models.ManyToManyField(through='relation.many_to_many.Relation', to='relation.many_to_many.TwitterUser')),
             ],
         ),
         migrations.AddField(
             model_name='relation',
             name='from_user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='from_user_relations', related_query_name='from_user_relation', to='many_to_many.TwitterUser'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='from_user_relations', related_query_name='from_user_relation', to='relation.many_to_many.TwitterUser'),
         ),
         migrations.AddField(
             model_name='relation',
             name='to_user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='to_user_relations', related_query_name='to_user_relation', to='many_to_many.TwitterUser'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='to_user_relations', related_query_name='to_user_relation', to='relation.many_to_many.TwitterUser'),
         ),
         migrations.AlterUniqueTogether(
             name='relation',

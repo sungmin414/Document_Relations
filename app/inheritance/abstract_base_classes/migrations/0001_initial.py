@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('text', models.TextField(blank=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='textpost_set', to='abstract_base_classes.RelatedUser')),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='textpost_set', to='inheritance.abstract_base_classes.RelatedUser')),
             ],
             options={
                 'abstract': False,
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('photo_url', models.CharField(blank=True, max_length=100)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='photopost_set', to='abstract_base_classes.RelatedUser')),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='photopost_set', to='inheritance.abstract_base_classes.RelatedUser')),
             ],
             options={
                 'abstract': False,
