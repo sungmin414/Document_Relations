@@ -7,6 +7,11 @@
 
 from django.db import models
 
+__all__ = (
+    'CommonInfo',
+    'Student',
+)
+
 
 class CommonInfo(models.Model):
     # db_index : 데이터베이스 컬럼에대해 순서를 정해줌
