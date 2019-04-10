@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=10)),
-                ('toppings', models.ManyToManyField(to='relation.many_to_many.Topping')),
+                ('toppings', models.ManyToManyField(to='many_to_many.Topping')),
             ],
         ),
     ]

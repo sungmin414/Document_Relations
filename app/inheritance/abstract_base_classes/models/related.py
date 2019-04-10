@@ -1,10 +1,11 @@
 from django.db import models
 
+
 __all__ = (
     'RelatedUser',
+    'PostBase',
     'PhotoPost',
     'TextPost',
-    'PostBase',
 )
 
 
@@ -20,12 +21,11 @@ class PostBase(models.Model):
         RelatedUser,
         on_delete=models.CASCADE,
         # 유저(Person) 입장에서
-        # 자신이 특정 Post의 author인 경우에 해당하는 모든 PostBase 객체를 참조
-        # %(class)s : 상속받은 클래스명의 소문자화
-        # %(app_label)s : 상속받은 클래스가 속한 애플리케이션명의 소문자화
+        #  자신이 특정 Post의 'author'인 경우에 해당하는 모든 PostBase객체를 참조하는 역방향 매니저 이름
+        #  %(class)s    : 상속받은 클래스명의 소문자화
+        #  %(app_label)s : 상속받은 클래스가 속한 애플리케이션명의 소문자화
         related_name='%(app_label)s_%(class)s_set',
-        related_query_name='%(app_label)s_%(class)s'
-
+        related_query_name='%(app_label)s_%(class)s',
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -35,7 +35,7 @@ class PostBase(models.Model):
 
 class PhotoPost(PostBase):
     # author의 related_name
-    # photopost_set
+    #  abstract_base_classes_photopost_set
     photo_url = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
@@ -44,7 +44,7 @@ class PhotoPost(PostBase):
 
 class TextPost(PostBase):
     # author의 related_name
-    # textpost_set
+    #  textpost_set
     text = models.TextField(blank=True)
 
     def __str__(self):

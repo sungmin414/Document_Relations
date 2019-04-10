@@ -31,13 +31,13 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date_joined', models.DateField()),
                 ('invite_reason', models.CharField(max_length=64)),
-                ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='relation.many_to_many.Group')),
-                ('person', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='relation.many_to_many.Person')),
+                ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='many_to_many.Group')),
+                ('person', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='many_to_many.Person')),
             ],
         ),
         migrations.AddField(
             model_name='group',
             name='members',
-            field=models.ManyToManyField(related_name='group_set', related_query_name='group', through='relation.many_to_many.Membership', to='relation.many_to_many.Person'),
+            field=models.ManyToManyField(related_name='group_set', related_query_name='group', through='many_to_many.Membership', to='many_to_many.Person'),
         ),
     ]

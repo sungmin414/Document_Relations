@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
-                ('following', models.ManyToManyField(related_name='followers', to='relation.many_to_many.InstagramUser')),
+                ('following', models.ManyToManyField(related_name='followers', to='many_to_many.InstagramUser')),
             ],
         ),
     ]

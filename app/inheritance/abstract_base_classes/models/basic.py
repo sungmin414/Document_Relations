@@ -1,10 +1,9 @@
 # 1. AbstractBaseClasses
-#     자식 테이블만 존재
+#  자식 테이블만 존재
 # 2. Multi table inheritance
-#     보무, 자식 테이블이 모두 존재
+#  부모, 자식 테이블이 모두 존재
 # 3. Proxy model
-#     부모 테이블만 존재
-
+#  부모 테이블만 존재
 from django.db import models
 
 __all__ = (
@@ -14,7 +13,6 @@ __all__ = (
 
 
 class CommonInfo(models.Model):
-    # db_index : 데이터베이스 컬럼에대해 순서를 정해줌
     name = models.CharField(max_length=100, db_index=True)
     age = models.PositiveIntegerField()
 
