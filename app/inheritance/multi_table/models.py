@@ -18,7 +18,7 @@ class Place1(models.Model):
 def get_removed_place():
     # 밑에 내용줄여서 쓰면 return Place1.objects.get_or_create(name='철거됨')[0]
     try:
-        place = Place1.objects.get(name='철더됨')
+        place = Place1.objects.get(name='철거됨')
     except Place1.DoesNotExist:
         place = Place1.objects.create(name='철거됨')
     return place
@@ -29,7 +29,13 @@ class Restaurant1(Place1):
     # <부모클래스의 소문자화>_ptr = models.OneToOneField(<부모클래스>)
     # PLace1_ptr = models.OneToOneField(Place1, primary_key=True)
     #   -> 임의의 필드에 parent_link=True 옵션을 주면 <부모클래스의 소문자화>_ptr 필드가 생성되지 않음
-    # place_ptr = models.OneToOneField(Place1, parent_link=True, primary_key=True)
+    place_ptr = models.OneToOneField(
+        Place1,
+        on_delete=models.CASCADE,
+        parent_link=True,
+        primary_key=True,
+    )
+
     serves_hot_dogs = models.BooleanField(default=False)
     serves_pizza = models.BooleanField(default=False)
 
